@@ -146,11 +146,32 @@ class Attribute:
     maxY = max(zip(*coords)[1])
     minX = min(zip(*coords)[0])
     minY = min(zip(*coords)[1])
-    self.width = maxX-minX+1
-    self.height = maxY-minY+1
+    self.color = color
+    self.height = maxX-minX+1
+    self.width = maxY-minY+1
     x_off = minX
     y_off = minY
     self.coords = map(lambda (x,y): (x-x_off, y-y_off), coords)
+  def CW_rotate(self):
+    new_coords = []
+    for coord in self.coords:
+      (x,y) = coord
+      new_x = y
+      new_y = self.height-x
+      new_coords.append((new_x, new_y))
+    return Attribute(color=self.color, coords=new_coords)
+  def ACW_rotate(self):
+    new_coords = []
+    for coord in self.coords:
+      (x,y) = coord
+      new_x = self.width-y
+      new_y = x
+      new_coords.append((new_x, new_y))
+    return Attribute(color=self.color, coords=new_coords)
+  def print_attr(self):
+    print self.color
+    for coord in self.coords:
+      print coord
 
 class Ingredient:
   def __init__(self, attributes=[]):
