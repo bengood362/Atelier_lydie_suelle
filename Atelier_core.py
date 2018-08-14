@@ -15,7 +15,7 @@ class BonusColor:
     if(self.bonus_color == 'None'):
       return ' '*padding
     else:
-      res = self.bonus_type[:padding]
+      res = self.bonus_color[:padding]
       return res + ' '*(padding-len(res))
   def getv(self, padding=2):
     if(self.bonus_color == 'None'):
@@ -124,7 +124,7 @@ class Board:
       code_buffer = '|'
       for i in range(self.shape):
         code_buffer += self.board[j][i].getcc(padding=padding)
-        code_buffer += ' |'
+        code_buffer += '|'
       val_buffer = '|'
       for i in range(self.shape):
         val_buffer += self.board[j][i].getcv(padding=padding)
