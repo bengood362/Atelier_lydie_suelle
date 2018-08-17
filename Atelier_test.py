@@ -1,4 +1,5 @@
 # Atelier_test.py
+# import Atelier_core as Atelier
 import Atelier_core as Atelier
 # ------------- Check gameboard ------------- #
 bonus_color = [
@@ -49,15 +50,23 @@ attr7 = Atelier.Attribute(color='y',coords=[(0,0)])
 #   a.print_attr()
 attr8 = Atelier.Attribute(color='r',coords=[(0,0),(0,1),(1,0)])
 print 'board shape: {0}'.format(board.get_shape())
-attr.print_attr()
-print board.get_possible_offset(attr)
+# attr.print_attr()
+# print board.get_possible_offset(attr)
+print('attr6: ')
 attr6.print_attr()
 print board.get_possible_offset(attr6)
+print('attr7: ')
 attr7.print_attr()
 print board.get_possible_offset(attr7)
-board.apply_attr(attr7, (4,4)) # Should have error
+print('attr8: ')
+attr8.print_attr()
+print board.get_possible_offset(attr8)
+print("applying attr8 to (1,1)")
+print("applying attr6 to (1,0)")
+print("applying attr7 to (3,3)")
+# board.apply_attr(attr7, (4,4)) # Should have error
 board.apply_attr(attr8, (1,1))
-board.apply_attr(attr6, (0,0))
+board.apply_attr(attr6, (1,0))
 board.apply_attr(attr7, (3,3))
 board.print_board()
 # ------------- End check attribute ------------- #
